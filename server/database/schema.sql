@@ -1,4 +1,3 @@
--- Active: 1769730037726@@127.0.0.1@5432@softjobs
 
 CREATE DATABASE softjobs;
 \c softjobs;

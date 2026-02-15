@@ -1,6 +1,7 @@
-# Tienda Joyas API 
+# Soft-jobs-API
 
 Servidor para autenticación y autorización de usuarios usando JWT.
+(API REST)
 
 ## Tecnologías Empleadas
 

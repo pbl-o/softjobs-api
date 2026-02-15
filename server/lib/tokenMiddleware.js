@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 dotenv.config();
 import jwt from "jsonwebtoken";
 
-
 // Verifica existencia para validar posteriormente (2.a, 2.b)
 const authMiddleware = (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1];
