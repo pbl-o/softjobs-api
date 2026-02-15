@@ -53,13 +53,34 @@ Los procesos descritos a continuación se ejecutan automáticamente al utilizar 
 
 Rutas:
 1. Registrar un usuario nuevo:
-POST /usuarios (registro de usuario) {"email": "tu_email", "password":"tu_contraseña, rol, lenguage"}
+
+- POST /usuarios (registro de usuario) 
+
+```json
+{
+ "email": "tu_email",
+ "password":"tu_contraseña", 
+ "rol": "tu_rol", 
+ "lenguage": "lenguaje_de_programación"
+ }
+```
+
 2. Acceder sesión personal (Obtener token)
-POST /usuarios/login (incio de sesión)
-- Ingresar Credenciales {"email": "tu_email", "password":"tu_contraseña"}
+- POST /usuarios/login (incio de sesión)
+
+- Ingresar Credenciales: 
+
+```json
+{"email": "tu_email", 
+"password":"tu_contraseña"}
+
+```
 - Se desplegará el token en la pantalla del tester (copiar).
+
 3. Acceder a información previamente ingresada (con autorización)
-GET /usuarios (viusalización de información autorizada vía token validation) 
+
+- GET /usuarios (viusalización de información autorizada vía token validation) 
+
 - Acceder a la apartado "headers" del método
 - En el tercer item rellenar el espacio "header" con "Authorization" y el espacio "value" con "Bearer <Token>" (colocar el token a continuación de "Bearer " ) 
 - Ejecutar la función, si las credenciales están correctas, la información ingresada al registrar el usuario será desplegada en la pantalla de Thunderclient. 
