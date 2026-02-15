@@ -23,30 +23,29 @@ const authMiddleware = (req, res, next) => {
   try {
     const payload = jwt.verify(token, process.env.SUPER_SECRET);
     req.user = payload;
-    console.log("Token exists")
+    console.log("Token exists");
     next();
   } catch (error) {
     return res.status(401).json({ error: "Invalid Token" });
   }
 };
 
-//Reporta consulta vía terminal 
+//Reporta consulta vía terminal
 const reportQuery = async (req, res, next) => {
   try {
     const method = req.method;
     const route = req.route.path;
-    const realRoute = req.originalUrl
+    const realRoute = req.originalUrl;
     console.log(`${method} ${realRoute}`);
-    next()
+    next();
   } catch (error) {
     console.error(error);
   }
 };
 
-
 const middlewareToken = {
   authMiddleware,
-  reportQuery
-}
+  reportQuery,
+};
 
-export default middlewareToken
+export default middlewareToken;

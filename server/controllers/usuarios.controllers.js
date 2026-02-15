@@ -45,6 +45,11 @@ const registerUser = async (req, res) => {
     res.status(201).send("Usuario creado con exito");
   } catch (error) {
     console.error(error);
+    if(error.code  === '23505'){
+        return res.status(409).json({
+            message: "Usuario o email ya registrado"
+        })
+    }
     res.status(error.code || 500).send(error);
   }
 };

@@ -5,6 +5,6 @@ CREATE DATABASE softjobs;
 
 DROP TABLE IF EXISTS usuarios;
 
-CREATE TABLE usuarios ( id SERIAL, email VARCHAR(50) NOT NULL, password
+CREATE TABLE usuarios ( id SERIAL, email VARCHAR(50) NOT NULL UNIQUE, password
 VARCHAR(60) NOT NULL, rol VARCHAR(25), lenguage VARCHAR(20) );
 SELECT * FROM usuarios;
