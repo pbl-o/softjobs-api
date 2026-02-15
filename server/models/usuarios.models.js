@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import bcrypt from "bcryptjs";
-import {pool} from '../database/database.js' 
+import { pool } from "../database/database.js";
 
 const getUser = async (email) => {
   const query = "SELECT * from usuarios WHERE email = $1";

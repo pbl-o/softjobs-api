@@ -2,16 +2,6 @@ import dotenv from "dotenv";
 dotenv.config();
 import jwt from "jsonwebtoken";
 
-/* 
-
-code : 23505 // user already exists
-
-*/
-
-/* 
-const isMatch = bcrypt.compareSync(password, user.password)
-!isMatch && res.status(400).json({message: "invalid credentials"})
- */
 
 // Verifica existencia para validar posteriormente (2.a, 2.b)
 const authMiddleware = (req, res, next) => {
