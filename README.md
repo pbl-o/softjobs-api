@@ -48,7 +48,7 @@ SELECT * FROM usuarios;
 ```bash
 npm run dev
 ```
-Para consultar datos por medio de un api tester (Thunder Client):
+Para consultar datos por medio de un api tester (Thunder Client / manual):
 Los procesos descritos a continuación se ejecutan automáticamente al utilizar el lado cliente (REACT app).
 
 Rutas:
@@ -75,7 +75,13 @@ Rutas:
 "password": "tu_contraseña"}
 
 ```
-- Se desplegará el token en la pantalla del tester (copiar).
+- Se desplegará el token en la pantalla del tester (copiar token).
+
+```json
+{"email": "tu_email", 
+"password": "tu_contraseña"}
+
+```
 
 3. Acceder a información previamente ingresada (con autorización)
 
