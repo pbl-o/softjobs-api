@@ -3,6 +3,7 @@ dotenv.config();
 import jwt from "jsonwebtoken";
 
 import usuariosModel from "../models/usuarios.models.js";
+import { getDatabaseError } from "../lib/error.js";
 
 const SECRET_KEY = process.env.SUPER_SECRET;
 
@@ -16,13 +17,17 @@ const getUserInfo = async (req, res) => {
 
     //decode email
     const { email } = jwt.decode(token);
-    console.log(`User ${email} has accessed to his information via getUser`);
+    console.log(`Usuario ${email}: Acceso a datos autorizado  `);
 
     const payload = await usuariosModel.getUser(email);
     return res.status(200).json(payload);
   } catch (error) {
     console.error(error);
-    return res.status(error.code || 500).send(error);
+    if (error.code) {
+      const { code, message } = getDatabaseError(error.code);
+      return res.status(code).json({ message });
+    }
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -34,7 +39,11 @@ const userLogin = async (req, res) => {
     res.json({ token });
   } catch (error) {
     console.error(error);
-    res.status(error.code || 500).send(error);
+    if (error.code) {
+      const { code, message } = getDatabaseError(error.code);
+      return res.status(code).json({ message });
+    }
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -45,12 +54,11 @@ const registerUser = async (req, res) => {
     res.status(201).send("Usuario creado con exito");
   } catch (error) {
     console.error(error);
-    if (error.code === "23505") {
-      return res.status(409).json({
-        message: "Usuario o email ya registrado",
-      });
+    if (error.code) {
+      const { code, message } = getDatabaseError(error.code);
+      return res.status(code).json({ message });
     }
-    res.status(error.code || 500).send(error);
+    return res.status(500).json({ message: error.message });
   }
 };
 

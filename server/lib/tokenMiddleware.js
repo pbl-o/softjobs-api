@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 const authMiddleware = (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1];
   if (!token) {
-    return res.status(401).json({ error: "No token provided" });
+    return res.status(401).json({ error: "Token no encontrada o no accesible" });
   }
 
   try {
@@ -15,7 +15,7 @@ const authMiddleware = (req, res, next) => {
     console.log("Token exists");
     next();
   } catch (error) {
-    return res.status(401).json({ error: "Invalid Token" });
+    return res.status(401).json({ error: "Token Invalida" });
   }
 };
 
@@ -23,7 +23,7 @@ const authMiddleware = (req, res, next) => {
 const reportQuery = async (req, res, next) => {
   try {
     const method = req.method;
-    const route = req.route.path;
+    //const route = req.route.path;
     const realRoute = req.originalUrl;
     console.log(`${method} ${realRoute}`);
     next();

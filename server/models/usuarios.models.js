@@ -7,7 +7,7 @@ const getUser = async (email) => {
   const query = "SELECT * from usuarios WHERE email = $1";
   const { rows: user, rowCount } = await pool.query(query, [email]);
   if (!rowCount) {
-    throw { code: 404, message: "User not found" };
+    throw { code: 404, message: "Usuario no encontrado" };
   }
   return user;
 };
@@ -34,7 +34,7 @@ const verifyUser = async (email, password) => {
   } = await pool.query(query, values);
 
   if (!rowCount) {
-    throw { code: 404, message: "User not found" };
+    throw { code: 404, message: "Usuario no encontrado" };
   }
 
   const { password: encryptPass } = usuario;
