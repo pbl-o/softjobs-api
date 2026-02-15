@@ -54,7 +54,7 @@ Los procesos descritos a continuación se ejecutan automáticamente al utilizar 
 Rutas:
 1. Registrar un usuario nuevo:
 
-- POST /usuarios (registro de usuario) 
+- POST /usuarios
 
 ```json
 {
@@ -65,14 +65,14 @@ Rutas:
  }
 ```
 
-2. Acceder sesión personal (Obtener token)
-- POST /usuarios/login (incio de sesión)
+2. Acceder sesión personal (Login, acceso a token)
+- POST /usuarios/login
 
 - Ingresar Credenciales: 
 
 ```json
 {"email": "tu_email", 
-"password":"tu_contraseña"}
+"password": "tu_contraseña"}
 
 ```
 - Se desplegará el token en la pantalla del tester (copiar).
