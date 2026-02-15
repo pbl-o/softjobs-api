@@ -56,13 +56,13 @@ Rutas:
 POST /usuarios (registro de usuario) {"email": "tu_email", "password":"tu_contraseña, rol, lenguage"}
 2. Acceder sesión personal (Obtener token)
 POST /usuarios/login (incio de sesión)
-      a. Ingresar Credenciales {"email": "tu_email", "password":"tu_contraseña"}
-      b. Se desplegará el token en la pantalla del tester (copiar).
+- Ingresar Credenciales {"email": "tu_email", "password":"tu_contraseña"}
+- Se desplegará el token en la pantalla del tester (copiar).
 3. Acceder a información previamente ingresada (con autorización)
 GET /usuarios (viusalización de información autorizada vía token validation) 
-      a. Acceder a la apartado "headers" del método
-      b. En el tercer item rellenar el espacio "header" con "Authorization" y el espacio "value" con "Bearer <Token>" (colocar el token a continuación de "Bearer " ) 
-      b. Ejecutar la función, si las credenciales están correctas, la información ingresada al registrar el usuario será desplegada en la pantalla de Thunderclient. 
+- Acceder a la apartado "headers" del método
+- En el tercer item rellenar el espacio "header" con "Authorization" y el espacio "value" con "Bearer <Token>" (colocar el token a continuación de "Bearer " ) 
+- Ejecutar la función, si las credenciales están correctas, la información ingresada al registrar el usuario será desplegada en la pantalla de Thunderclient. 
 
 
 Pablo E. Díaz. A.
