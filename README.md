@@ -5,7 +5,7 @@ Servidor para autenticación y autorización de usuarios usando JWT.
 
 ## Tecnologías Empleadas
 
-- Node.js, express.js, Postgre SQL
+- Node.js, express.js, PostgreSQL
 
 ## Instalación y uso.
 
