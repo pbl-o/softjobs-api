@@ -14,7 +14,7 @@ const isMatch = bcrypt.compareSync(password, user.password)
  */
 
 // Verifica existencia para validar posteriormente (2.a, 2.b)
-export const authMiddleware = (req, res, next) => {
+const authMiddleware = (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1];
   if (!token) {
     return res.status(401).json({ error: "No token provided" });
@@ -31,13 +31,22 @@ export const authMiddleware = (req, res, next) => {
 };
 
 //Reporta consulta vía terminal 
-export const reportQuery = async (req, res, next) => {
+const reportQuery = async (req, res, next) => {
   try {
     const method = req.method;
     const route = req.route.path;
-    console.log(`${method} ${route}`);
+    const realRoute = req.originalUrl
+    console.log(`${method} ${realRoute}`);
     next()
   } catch (error) {
     console.error(error);
   }
 };
+
+
+const middlewareToken = {
+  authMiddleware,
+  reportQuery
+}
+
+export default middlewareToken
